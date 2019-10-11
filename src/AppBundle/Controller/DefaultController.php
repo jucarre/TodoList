@@ -10,7 +10,7 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(): \Symfony\Component\HttpFoundation\Response
+    public function indexAction()
     {
         return $this->render('default/index.html.twig');
     }
