@@ -48,7 +48,7 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Task", mappedBy="user", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Task", mappedBy="user", cascade={"persist"}, orphanRemoval=true)
      */
     private $tasks;
 
