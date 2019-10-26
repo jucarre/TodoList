@@ -12,16 +12,13 @@ use Symfony\Component\Security\Core\Security;
 
 class TaskVoter extends Voter
 {
-    private $security;
+    public const DELETE = 'delete';
+    public const EDIT = 'edit';
 
-    public function __construct(Security $security)
-    {
-        $this->security = $security;
-    }
 
     protected function supports($attribute, $subject): bool
     {
-        return in_array($attribute, ['EDIT', 'DELETE'])
+        return in_array($attribute, [self::EDIT, self::DELETE], true)
             && $subject instanceof Task;
     }
 
@@ -33,18 +30,14 @@ class TaskVoter extends Voter
             return false;
         }
 
-        if (null === $task->getUser()) {
-            return false;
-        }
-
-        if ($this->security->isGranted('ROLE_ADMIN')) {
+        if ($user->isAdmin()) {
             return true;
         }
 
         switch ($attribute) {
-            case 'DELETE':
-            case 'EDIT':
-                return $task->getUser()->getId() === $user->getId();
+            case self::DELETE:
+            case self::EDIT:
+                return $task->getUser() === $user;
                 break;
         }
 
