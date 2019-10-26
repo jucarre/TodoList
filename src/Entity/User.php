@@ -62,6 +62,11 @@ class User implements UserInterface
         return $this->id;
     }
 
+    public function setId(int $id): int
+    {
+        return $this->id = $id;
+    }
+
     public function getUsername()
     {
         return $this->username;
@@ -146,15 +151,17 @@ class User implements UserInterface
      */
     public function getRoles(): array
     {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-        return array_unique($roles);
+       return $this->roles;
     }
 
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
         return $this;
+    }
+
+    public function isAdmin(): bool
+    {
+        return \in_array('ROLE_ADMIN', $this->getRoles(), true);
     }
 }

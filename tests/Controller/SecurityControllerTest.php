@@ -38,7 +38,7 @@ class SecurityControllerTest extends WebTestCase
         $this->assertSame('Se déconnecter', $crawler->filter('a.pull-right.btn.btn-danger')->text());
     }
 
-    public function testLoginFailUsername(): void
+    public function testLoginUsernameDontExist(): void
     {
         $crawler = $this->client->request('GET', '/login');
 
