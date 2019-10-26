@@ -16,7 +16,6 @@ class UserController extends AbstractController
 {
     /**
      * @Route("/users", name="user_list")
-     *  Require ROLE_ADMIN for *every* controller method in this class.
      * @IsGranted("ROLE_ADMIN")
      */
     public function listAction(): Response

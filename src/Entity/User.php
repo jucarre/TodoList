@@ -48,7 +48,7 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Task", mappedBy="user", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Task", mappedBy="user", cascade={"persist"}, orphanRemoval=true)
      */
     private $tasks;
 
@@ -60,6 +60,11 @@ class User implements UserInterface
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setId(int $id): int
+    {
+        return $this->id = $id;
     }
 
     public function getUsername()
@@ -146,15 +151,17 @@ class User implements UserInterface
      */
     public function getRoles(): array
     {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-        return array_unique($roles);
+       return $this->roles;
     }
 
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
         return $this;
+    }
+
+    public function isAdmin(): bool
+    {
+        return \in_array('ROLE_ADMIN', $this->getRoles(), true);
     }
 }

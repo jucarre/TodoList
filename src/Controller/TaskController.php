@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Task;
 use App\Form\TaskType;
+use App\Security\TaskVoter;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -54,7 +55,7 @@ class TaskController extends AbstractController
      */
     public function editAction(Task $task, Request $request): Response
     {
-        $this->denyAccessUnlessGranted('EDIT', $task);
+        $this->denyAccessUnlessGranted(TaskVoter::EDIT, $task);
 
         $form = $this->createForm(TaskType::class, $task);
 
@@ -96,7 +97,7 @@ class TaskController extends AbstractController
      */
     public function deleteTaskAction(Task $task): RedirectResponse
     {
-        $this->denyAccessUnlessGranted('DELETE', $task);
+        $this->denyAccessUnlessGranted(TaskVoter::DELETE, $task);
         $em = $this->getDoctrine()->getManager();
         $em->remove($task);
         $em->flush();

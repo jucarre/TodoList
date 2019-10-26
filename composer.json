@@ -29,12 +29,16 @@
         "symfony/yaml": "4.3.*"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "*",
+        "fzaninotto/faker": "^1.8",
+        "symfony/browser-kit": "*",
+        "symfony/css-selector": "*",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
+        "symfony/phpunit-bridge": "*",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",
-        "symfony/web-server-bundle": "4.3.*",
-        "symfony/phpunit-bridge": "^4.3"
+        "symfony/web-server-bundle": "*"
     },
     "config": {
         "preferred-install": {

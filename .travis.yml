@@ -1,0 +1,19 @@
+language: php
+
+php:
+  - 7.3
+
+services:
+  - mysql
+
+install:
+  - composer install
+
+before_script:
+  - cp .env.travis .env
+  - bin/console doctrine:database:create
+  - bin/console doctrine:schema:create
+  - bin/console doctrine:fixtures:load -n
+
+script:
+  - bin/phpunit
