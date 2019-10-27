@@ -72,7 +72,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->loginWithAdmin();
 
-        $crawler = $this->client->request('GET', '/tasks/'.random_int(1,6).'/edit');
+        $crawler = $this->client->request('GET', '/tasks/' . random_int(1, 6) . '/edit');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
 
         $this->assertSame('Title', $crawler->filter('label[for="task_title"]')->text());

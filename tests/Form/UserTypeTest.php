@@ -32,7 +32,7 @@ class UserTypeTest extends TypeTestCase
         );
     }
 
-    public function testSubmitValidData(): void
+    public function testSubmitValidDataUserType(): void
     {
         $formData = array(
             'username' => 'bob',

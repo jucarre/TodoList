@@ -12,43 +12,43 @@ class UserTest extends WebTestCase
 
     private $task;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->user = new User();
         $this->task = new Task();
     }
 
-    public function testId()
+    public function testId(): void
     {
         $this->user->setId(1);
         $this->assertSame(1, $this->user->getId());
     }
 
-    public function testUsername()
+    public function testUsername(): void
     {
         $this->user->setUsername('Bob');
         $this->assertSame('Bob', $this->user->getUsername());
     }
 
-    public function testPassword()
+    public function testPassword(): void
     {
         $this->user->setPassword('azertyui');
         $this->assertSame('azertyui', $this->user->getPassword());
     }
 
-    public function testEmail()
+    public function testEmail(): void
     {
         $this->user->setEmail('root@root.fr');
         $this->assertSame('root@root.fr', $this->user->getEmail());
     }
 
-    public function testRoles()
+    public function testRoles(): void
     {
         $this->user->setRoles(['ROLE_USER']);
         $this->assertSame(['ROLE_USER'], $this->user->getRoles());
     }
 
-    public function testTasks()
+    public function testTasks(): void
     {
         $tasks = $this->user->getTasks($this->task->getUser());
         $this->assertSame($this->user->getTasks(), $tasks);
@@ -61,14 +61,14 @@ class UserTest extends WebTestCase
     }
 
 
-    public function testSalt()
+    public function testSalt(): void
     {
         $this->assertEquals(null, $this->user->getSalt());
     }
 
-    public function testEraseCredential()
+    public function testEraseCredential(): void
     {
-       $this->assertNull($this->user->eraseCredentials());
+        $this->assertNull($this->user->eraseCredentials());
     }
 
 }

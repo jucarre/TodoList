@@ -9,7 +9,7 @@ class SecurityControllerTest extends WebTestCase
 {
     private $client;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $this->client = self::createClient();
     }
@@ -73,11 +73,10 @@ class SecurityControllerTest extends WebTestCase
         $this->assertSame('Mot de passe incorrect', $crawler->filter('div.alert-danger')->text());
     }
 
-    public function tearDown() : void
+    public function tearDown(): void
     {
         $this->client = null;
         $crawler = null;
     }
-
 
 }

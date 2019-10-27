@@ -8,7 +8,6 @@ use App\Entity\Task;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\Security;
 
 class TaskVoter extends Voter
 {
@@ -37,7 +36,7 @@ class TaskVoter extends Voter
         switch ($attribute) {
             case self::DELETE:
             case self::EDIT:
-                return $task->getUser() === $user;
+                return $task->getUser()->getId() === $user->getId();
                 break;
         }
 
