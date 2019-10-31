@@ -5,7 +5,7 @@ Contribution Guide
 
 1. Make a fork of the project Github directory
 
-2. Follow the [README](../README.md) after come back here
+2. Follow the [README](./README.md) after come back here
 
 3. Create a branch
 
