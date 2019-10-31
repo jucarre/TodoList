@@ -1,7 +1,7 @@
 Contribution Guide
 ============
 
-###How to contribute to the project:
+### How to contribute to the project:
 
 1. Make a fork of the project Github directory
 
