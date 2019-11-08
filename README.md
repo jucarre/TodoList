@@ -7,8 +7,8 @@ Project 8: Improve an Existing Project
 
 https://openclassrooms.com/projects/ameliorer-un-projet-existant-1
 
-## Prerequisites
-
+## Pre-requisites
+- [Link](https://symfony.com/doc/current/setup.html#technical-requirements) to doc technical requirements
 - Symfony Local Web Server or Configure your local server MAMP, WAMP
 - PHP 7.3 or more
 - MySQL 5.7 or more
