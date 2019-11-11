@@ -8,28 +8,17 @@ use App\Entity\User;
 use App\Form\UserType;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
 use Symfony\Component\Form\Test\TypeTestCase;
-use Symfony\Component\Validator\ConstraintViolationList;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Symfony\Component\Form\Form;
+use Symfony\Component\Validator\Validation;
 
 class UserTypeTest extends TypeTestCase
 {
-    private $validator;
-
     protected function getExtensions(): array
     {
-        $this->validator = $this->createMock(ValidatorInterface::class);
-        $this->validator
-            ->method('getMetadataFor')
-            ->willReturn(new ClassMetadata(Form::class));
-        $this->validator
-            ->method('validate')
-            ->willReturn(new ConstraintViolationList());
+          $validator = Validation::createValidator();
 
-        return array(
-            new ValidatorExtension($this->validator)
-        );
+        return [
+            new ValidatorExtension($validator),
+        ];
     }
 
     public function testSubmitValidDataUserType(): void
