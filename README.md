@@ -5,7 +5,6 @@ ToDoList
 
 Project 8: Improve an Existing Project
 
-https://openclassrooms.com/projects/ameliorer-un-projet-existant-1
 
 ## Pre-requisites
 - [Link](https://symfony.com/doc/current/setup.html#technical-requirements) to doc technical requirements
